@@ -66,7 +66,7 @@ public class CustomerController {
     /**
      * POST endpoint method that listens on <code>"/customer"</code> URL and
      * will call the
-     * {@link com.group.foctg.holidayMaker.services.CustomerService#saveCustomer(com.group.foctg.holidayMaker.model.Customer)}
+     * {@link com.group.foctg.holidayMaker.services.CustomerService#saveCustomer}
      * method from the Service.
      *
      * @param customer {@link com.group.foctg.holidayMaker.model.Customer}
