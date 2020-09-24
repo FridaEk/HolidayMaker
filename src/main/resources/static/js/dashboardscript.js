@@ -47,7 +47,7 @@ fetch("http://localhost:8080/api/booking?id=" + user.id)
       adults.innerHTML = "Number of adults: " + data[i].numberOfAdults;
 
       var kids = document.createElement('p');
-      adults.classList.add('style-p');
+      kids.classList.add('style-p');
       kids.innerHTML = "Number of kids: " + data[i].numberOfKids;
 
       var btnDiv = document.createElement('div');
@@ -302,8 +302,30 @@ function listings() {
     });
 }
 
+function addListingForm() {
+  //  document.getElementById("add-listing-container").style.display = "block";
+    var addListingContainer = document.getElementById('add-listing-container')[0];
+
+    var listingInfo = document.createElement('div');
+    listingInfo.classList.add("listing-info");
+
+
+    var name = document.createElement('label');
+    name.classList.add('listing-title');
+    name.innerHTML = "Name";
+    var nameInput = document.createElement('input');
+    nameInput.setAttribute("type", "text");
+
+    listingInfo.appendChild(nameInput);
+    listingInfo.appendChild(name);
+
+    addListingContainer.appendChild(listingInfo);
+
+
+}
+
 function addListing() {
-  document.getElementById("panel").style.display = "block";
+
 }
 
 function deleteListing(element) {

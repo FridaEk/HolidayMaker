@@ -9,16 +9,71 @@
 
 <body>
 	<!-- Menu bar -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="nav-link mr-auto" href="#">back to explorer</a>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav ml-auto">
+	<div class="menu-container">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="nav-brand mr-auto" href="#">back to HolidayMaker</a>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link" href="#" onclick="addListingForm()">Add listing</a></li>
+					<li class="nav-item active"><a class="nav-link" href="#">Sign
+							out</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
 
-				<li class="nav-item active"><a class="nav-link" href="#">Sign
-						out</a></li>
-			</ul>
-		</div>
-	</nav>
+	<div id="add-listing-container">
+		<!--
+		<div id="listing-info">
+			<label for="name-input" class="listing-title">Name:</label>
+			<input id="name-input" type="text"><br>
+
+			<label for="acc-pool" class="listing-title">Access to Pool?</label>
+			<select name="pool" id="acc-pool">
+				<option value="true" selected>Yes</option>
+				<option value="false">No</option>
+			</select><br>
+
+			<label for="acc-entertainment" class="listing-title">Nightly Entertainment?</label>
+			<select name="entertainment" id="acc-entertainment">
+				<option value="true" selected>Yes</option>
+				<option value="false">No</option>
+			</select><br>
+
+			<label for="acc-child" class="listing-title">Activities for Children?</label>
+			<select name="kid-act" id="acc-child">
+				<option value="true" selected>Yes</option>
+				<option value="false">No</option>
+			</select><br>
+
+			<label for="acc-restaurant" class="listing-title">Restaurant?</label>
+				<select name="restaurant" id="acc-restaurant">
+					<option value="true" selected>Yes</option>
+					<option value="false">No</option>
+				</select><br>
+
+				<label for="distance-center" class="listing-title">Distance to Center</label>
+				<input id="distance-center" type="number"><br>
+
+				<label for="distance-beach" class="listing-title">Distance to Beach</label>
+				<input id="distance-beach" type="number"><br>
+
+				<label for="acc-location" class="listing-title">Location</label>
+				<select name="location" id="acc-location">
+					<option value="" disabled selected hidden>Select Location</option>
+				</select><br>
+
+				<label for="image" class="listing-title">Image</label>
+				<input id="image" type="text"><br>
+
+				<label for="acc-desc" class="listing-title">Description</label>
+				<textarea id="acc-desc"></textarea><br>
+
+			<input type="submit" value="Create listing" onclick="addListing()">
+		</div>-->
+	</div>
+
+	<!-- Update booking -->
 	<div id="formCover">
 		<div id="panel">
 			<div class="panel-controller">
@@ -47,7 +102,7 @@
 
 		<!-- Listing Container -->
 		<div class="right-container">
-			<p class="title">My Listings</p>
+			<p class="title">Listings</p>
 		</div>
 	</div>
 
