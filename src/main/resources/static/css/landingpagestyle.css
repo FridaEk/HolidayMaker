@@ -157,6 +157,10 @@ body {
   padding: 1vw;
 }
 
+#loginForm > * {
+	margin-bottom: 1vw;
+}
+
 .closeForm {
   text-align: right;
   right: 0%;
@@ -174,6 +178,10 @@ body {
   height: 30%;
   background-color: #ffffff;
   padding: 1vw;
+}
+
+#regForm > * {
+    margin-bottom: 1vw;
 }
 
 #formCover {

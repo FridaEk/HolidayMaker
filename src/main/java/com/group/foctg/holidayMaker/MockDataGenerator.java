@@ -77,7 +77,7 @@ public class MockDataGenerator implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         log.info("Started mockdata generation, sit back and take it easy because this might take awhile...");
-        
+
         Long beforeMillis = System.currentTimeMillis();
 
         mockNames = getDataFromFile(fNames);
@@ -110,7 +110,7 @@ public class MockDataGenerator implements CommandLineRunner {
 
         log.info("Mockdata generation has finished!");
         mockDataStats(beforeMillis);
-        
+
         mockNames.clear();
         mockPlaces.clear();
     }
@@ -143,14 +143,19 @@ public class MockDataGenerator implements CommandLineRunner {
             customerService.saveCustomer(new Customer(mockNames.get(rand.nextInt(mockNames.size())) + rand.nextInt(255) + "@holidaymaker.io",
                     "password", new ArrayList<>(), new ArrayList<>()));
         }
-        
-            customerService.saveCustomer(new Customer("test@test.io",
-                    "password", new ArrayList<>(), new ArrayList<>()));
-        
+
+        customerService.saveCustomer(new Customer("test@test.io",
+                "password", new ArrayList<>(), new ArrayList<>()));
+
     }
 
     private void createMockAccommodations() {
         for (int i = 0; i < 5; i++) {
+            accommodationService.saveAccommodation(new Accommodation(
+                    mockNames.get(rand.nextInt(mockNames.size())),
+                    rand.nextBoolean(), rand.nextBoolean(), rand.nextBoolean(), rand.nextBoolean(),
+                    (short) rand.nextInt(1000), (short) rand.nextInt(1000), locationService.findById(Long.valueOf(i) + 1).get(), mockURL.get(i),
+                    mockDescription, new ArrayList<>(), customerService.findById(Long.valueOf(i) + 6).get(), (rand.nextFloat() * (5.0f - 0.1f) + 0.1f)));
             accommodationService.saveAccommodation(new Accommodation(
                     mockNames.get(rand.nextInt(mockNames.size())),
                     rand.nextBoolean(), rand.nextBoolean(), rand.nextBoolean(), rand.nextBoolean(),
@@ -162,13 +167,13 @@ public class MockDataGenerator implements CommandLineRunner {
     private void createMockRooms() {
         List<Accommodation> dbAccommodations = accommodationService.findAll();
 
-        dbAccommodations.forEach(ma -> {
+        for(int x = 0; x < (dbAccommodations.size() / 2); x++) {
             for (int i = 0; i < 5; i++) {
                 roomService.saveRoom(new Room((short) (rand.nextInt(6) + 2),
-                        accommodationService.findById(ma.getId()).get(),
+                        accommodationService.findById(dbAccommodations.get(x).getId()).get(),
                         (rand.nextFloat() * (20000.0f - 1000.0f) + 1000.0f)));
             }
-        });
+        }
     }
 
     /**

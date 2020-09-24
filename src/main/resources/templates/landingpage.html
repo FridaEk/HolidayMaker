@@ -25,12 +25,12 @@
 					<li class="nav-item active"><a class="nav-link" href="#">Home
 							<span class="sr-only">(current)</span>
 						</a></li>
-					<li class="nav-item"><a class="nav-link" href="#" onclick="openLogin()">Login</a></li>
-					<li class="nav-item"><a class="nav-link" href="#" onclick="openReg()">Sign up</a></li>
+					<li class="nav-item" id="login"></li>
+					<li class="nav-item" id="signup"></li>
 
-					<li class="nav-item"><a class="nav-link disabled" href="dashboard" tabindex="-1" id="profile" aria-disabled="true">Profile</a></li>
+					<li class="nav-item" id="profile"></li>
 
-					<li class="nav-item"><a class="nav-link" href="" tabindex="-1" id="signOut" onclick="signOut()" aria-disabled="true">Sign out</a></li>
+					<li class="nav-item" id="signOut"></li>
 				</ul>
 			</div>
 		</nav>
@@ -44,7 +44,7 @@
 				<div class="fullContainer">
 					<p class="propertyTitle">Location</p>
 					<select name="location" id="locationSelector">
-						<option value="" disabled selected hidden>Select Location</option>
+						<option value="any" selected>Any Location</option>
 					</select>
 				</div>
 				<div class="rowPairContainer">
@@ -84,15 +84,15 @@
 					<div class="halfContainer">
 						<p class="propertyTitle">Access to Pool?</p>
 						<select name="pool" id="poolSelector">
-							<option value="true" selected>Yes</option>
-							<option value="false">No</option>
+							<option value="true">Yes</option>
+							<option value="false" selected>No</option>
 						</select>
 					</div>
 					<div class="halfContainer">
 						<p class="propertyTitle">Activities for Children?</p>
 						<select name="kidAct" id="childActivitiesSelector">
-							<option value="true" selected>Yes</option>
-							<option value="false">No</option>
+							<option value="true">Yes</option>
+							<option value="false" selected>No</option>
 						</select>
 					</div>
 				</div>
@@ -100,15 +100,15 @@
 					<div class="halfContainer">
 						<p class="propertyTitle">Nightly Entertainment?</p>
 						<select name="entertainment" id="entertainmentSelector">
-							<option value="true" selected>Yes</option>
-							<option value="false">No</option>
+							<option value="true">Yes</option>
+							<option value="false" selected>No</option>
 						</select>
 					</div>
 					<div class="halfContainer">
 						<p class="propertyTitle">Restaurant?</p>
 						<select name="restaurant" id="restaurantSelector">
-							<option value="true" selected>Yes</option>
-							<option value="false">No</option>
+							<option value="true">Yes</option>
+							<option value="false" selected>No</option>
 						</select>
 					</div>
 				</div>
@@ -133,13 +133,13 @@
 					<div class="halfContainer">
 						<p class="propertyTitle">Distance to Center</p>
 						<select name="center" id="centerSelector">
-							<option value="" disabled selected hidden>Max Distance</option>
+							<option value="5000" selected>Max Distance</option>
 						</select>
 					</div>
 					<div class="halfContainer">
 						<p class="propertyTitle">Distance to Beach</p>
 						<select name="beach" id="beachSelector">
-							<option value="" disabled selected hidden>Max Distance</option>
+							<option value="5000" selected>Max Distance</option>
 						</select>
 					</div>
 				</div>
@@ -163,14 +163,15 @@
 		<div id="formCover">
 			<div id="loginForm">
 				<p class="navbar-brand headerTitle">Login</p>
-				<input id="email" placeholder='Email' value="mockEmail1@mock.io" type='text' name='email' /> <input id="password" value="mock_password1" type='password' placeholder='Password' name='password' /> <input name="submit" type="submit"
-					value="Login" onclick="closeLogin()" />
+				<input id="email" placeholder='Email' value="" type='text' name='email' /> <input id="password" value="" type='password' placeholder='Password' name='password' /> <input name="submit" type="submit"
+					value="Login" onclick="closeLogin(true)" />
+			    <a class="closeForm" href="#" onclick="closeLogin(false)">Close</a>
 			</div>
 			<div id="regForm">
 				<p class="navbar-brand headerTitle">Register</p>
-				<input placeholder='Email' id="regEmail" type='text' name='email'> <input placeholder='Password' id="regPass" type='password' name='password' /> <input placeholder='Repeat Password' id="regPassRep" type='password' name='password' /> <input
-					name="submit" type="submit" value="Register" onclick="closeReg()" />
-				<a class="closeForm" href="#" onclick="closeReg()">Close</a>
+				<input placeholder='Email' id="regEmail" type='text' name='email'/> <input placeholder='Password' id="regPass" type='password' name='password' /> <input placeholder='Repeat Password' id="regPassRep" type='password' name='password' /> <input
+					name="submit" type="submit" value="Register" onclick="closeReg(true)" />
+				<a class="closeForm" href="#" onclick="closeReg(false)">Close</a>
 			</div>
 		</div>
 	</div>
@@ -211,6 +212,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="js/autologoutscript.js"></script>
 <script src="js/landingpagescript.js"></script>
 
 </html>

@@ -192,7 +192,7 @@ public class AccommodationService {
          * false and add that accommodation with available dates to our
          * availableByDate List
          */
-        for (Accommodation a : findAccomodationsByLocationId(locationService.findLocationIdByName(filter.getLocation()))) {
+        for (Accommodation a : (filter.getLocation().equals("any") ? findAll() : findAccomodationsByLocationId(locationService.findLocationIdByName(filter.getLocation())))) {
             for (Room r : a.getRooms()) {
                 for (ReservedDates rd : r.getReservedDates()) {
                     if (!rd.isOverlapping(
